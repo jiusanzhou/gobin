@@ -51,7 +51,8 @@ pub fn handle(reqv: JsValue) -> Result<JsValue, JsValue> {
         }
         _ => {
             // handle the gobin
-            resp.body = gen_script(&path);
+            let res = &gen_script(&path);
+            resp.body = res;
             return Ok(to_value(&resp)?);
         }
     }
